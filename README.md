@@ -2,8 +2,8 @@
 To compat higher version of python and Pytorch, I changed some part of the hengyuan-hu's implementation: https://github.com/hengyuan-hu/bottom-up-attention-vqa
 . Thanks for him generously sharing the code. 
 
-Most importantly, the results of this code is able to get 63.50 now.
-Due to time restrictions, I just trained few times. If you are interested, I believe it's able to get the reported performance in original version.
+Most importantly, the results of this code is able to get 63.60 now. The accuracy is calculated using the [VQA evaluation metric](http://www.visualqa.org/evaluation.html).
+Due to time restrictions, I just trained few times. If you are interested, I believe it's able to get the higher performance.
 
 By the way, I find a problem exist in weight_norm of Pytorch, which lead to performance decline in python3. And there's the link about this in Pytorch forum: https://discuss.pytorch.org/t/is-weight-norm-different-in-different-python-versions/71108. 
 If someone know or interested about this, please don't hesitate to contact me.
