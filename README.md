@@ -5,8 +5,8 @@ To compat higher version of python and Pytorch, I changed some part of the hengy
 Most importantly, the results of this code is able to get 63.50 now.
 Due to time restrictions, I just trained few times. If you are interested, I believe it's able to get the reported performance in original version.
 
-By the way, I find a problem exist in weight_norm of Pytorch, and there's the link about this in Pytorch forum: https://discuss.pytorch.org/t/is-weight-norm-different-in-different-python-versions/71108. 
-If someone is know or interested about this, please don't hesitate to contact me.
+By the way, I find a problem exist in weight_norm of Pytorch, which lead to performance decline in python3. And there's the link about this in Pytorch forum: https://discuss.pytorch.org/t/is-weight-norm-different-in-different-python-versions/71108. 
+If someone know or interested about this, please don't hesitate to contact me.
 Thanks! So before this problem is solved, train with python2.7 env is suggested.
 
 There are some changes in this code:
