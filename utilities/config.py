@@ -34,8 +34,8 @@ rcnn_path = main_path + '../rcnn-data/'
 
 output_features = 2048
 rcnn_output_size = 36  # max number of object proposals per image
-bottom_up_trainval_path = dataroot + 'trainval_36'  # directory containing the .tsv file(s) with bottom up features
-bottom_up_test_path = dataroot + 'test2015_36'  # directory containing the .tsv file(s) with bottom up features
+bottom_up_trainval_path = dataroot + 'trainval_{}'.format(rcnn_output_size)  # directory containing the .tsv file(s) with bottom up features
+bottom_up_test_path = dataroot + 'test2015_{}'.format(rcnn_output_size)  # directory containing the .tsv file(s) with bottom up features
 rcnn_trainval_path = rcnn_path + 'trainval_{}.h5'.format(rcnn_output_size)  # path where preprocessed features from the trainval split are saved to and loaded from
 rcnn_test_path = rcnn_path + 'test_{}.h5'.format(rcnn_output_size)  # path where preprocessed features from the test split are saved to and loaded from
 
