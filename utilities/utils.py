@@ -1,7 +1,6 @@
 import errno
 import os
 import numpy as np
-from PIL import Image
 import json
 from utilities import config
 
@@ -76,12 +75,6 @@ def load_imageid(folder):
         img_id = int(img.split('/')[-1].split('.')[0].split('_')[-1])
         img_ids.add(img_id)
     return img_ids
-
-
-def pil_loader(path):
-    with open(path, 'rb') as f:
-        with Image.open(f) as img:
-            return img.convert('RGB')
 
 
 def create_dir(path):
