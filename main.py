@@ -110,3 +110,7 @@ if __name__ == '__main__':
                     saved_for_eval(val_loader, r, output_path, epoch)
                     torch.save(results, model_path+'{}.pth'.format(epoch))
             torch.save(results, model_path)
+        else:
+            saved_for_eval(val_loader, r, output_path, epoch)
+            break
+
