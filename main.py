@@ -32,7 +32,7 @@ def seed_torch(seed):
     print("seed: ", seed)
 
 
-def saved_for_eval(eval_loader, result, output_path, epoch=None):
+def saved_for_eval(eval_loader, result, output_path, epoch=0):
     """
         save a results file in the format accepted by the submission server.
         input result : [ans_idxs, acc, q_ids]
@@ -41,7 +41,12 @@ def saved_for_eval(eval_loader, result, output_path, epoch=None):
     results = []
     for a, q_id in zip(result[0], result[2]):
         results.append({'question_id': int(q_id), 'answer': label2ans[a]})
-    results_path = os.path.join(output_path, 'eval_results.json')
+
+    if config.mode != 'trainval':
+        name = 'eval_results.json'
+    else:
+        name = 'eval_results_epoch{}.json'.format(epoch)
+    results_path = os.path.join(output_path, name)
     with open(results_path, 'w') as fd:
         json.dump(results, fd)
 
@@ -80,7 +85,6 @@ if __name__ == '__main__':
     tracker = utils.Tracker()
     model_path = os.path.join(output_path, 'model.pth')
     if args.resume:
-        model_path = os.path.join(output_path, 'model.pth')
         logs = torch.load(model_path)
         start_epoch = logs['epoch']
         acc_val_best = logs['acc_val_best']
@@ -105,12 +109,9 @@ if __name__ == '__main__':
             if config.mode == 'train' and r[1].mean() > acc_val_best:
                 acc_val_best = r[1].mean()
                 saved_for_eval(val_loader, r, output_path, epoch)
-            if config.mode == 'trainval':
-                if epoch in range(config.epochs - 5, config.epochs):
-                    saved_for_eval(val_loader, r, output_path, epoch)
-                    torch.save(results, model_path+'{}.pth'.format(epoch))
+            if config.mode == 'trainval' and epoch in range(config.epochs - 5, config.epochs):
+                saved_for_eval(val_loader, r, output_path, epoch)
             torch.save(results, model_path)
         else:
             saved_for_eval(val_loader, r, output_path, epoch)
             break
-
