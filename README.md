@@ -5,7 +5,7 @@ To compat higher version of python and Pytorch, I changed some part of the hengy
 Most importantly, the results of this code is able to get 63.60 now. The accuracy is calculated using the [VQA evaluation metric](http://www.visualqa.org/evaluation.html).
 Due to time restrictions, I just trained few times. If you are interested, I believe it's able to get the higher performance.
 
->By the way, I find a problem exist in weight_norm of Pytorch v1.0, which lead to performance decline in Python3. And there's the link about this in Pytorch forum: https://discuss.pytorch.org/t/is-weight-norm-different-in-different-python-versions/71108. 
+>By the way, I find a problem exist in weight_norm of Pytorch v1.0, which leads to the performance decline in Python3. And there's the link about this problem in Pytorch forum: https://discuss.pytorch.org/t/is-weight-norm-different-in-different-python-versions/71108. 
 If someone know or interested about this, please don't hesitate to contact me.
 >
 >Thanks for ptrblck's answer, this issue is solved in higher version of Pytorch, like v1.4. 
