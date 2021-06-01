@@ -17,20 +17,21 @@ There are some changes in this code:
  - All codes are reformatted and some unnecessary part are trimmed. 
  - The ways to process and load images are edited.
  - To keep succinct, some functions are changed in dataset.
- - This code is compatible with 4 dataset: VQA-v1, VQA-v1, CP-v1, CP-v2.
- - Small fraction is changed in model to compatible with Pytorch v1.0.0 and python3.
+ - This code is compatible with 4 dataset: VQA-v1, VQA-v2, CP-v1, CP-v2.
+ - Small fraction is changed in model to compatible with Pytorch v1.0.0 (or higher version, e.g., 1.8.1) and python3.
  - The ways to train and eval are edited, refer to this code: [https://github.com/guoyang9/vqa-prior](https://github.com/guoyang9/vqa-prior). Also great thanks!
  - Add test support and save_results function.
  
-  Prerequisites
+  Prerequisites 
  - 
  - tqdm, h5py
  - python 3.7
- - pytorch (v1.4 is suggested)
+ - pytorch (v1.4, or higher version)
  
  
- Preprocessing
- - 
+ Preprocessing 
+-
+ (Please edit the config.py to make sure the directory is correct)
 1. Extract pre-trained image features.
     ```
     python preprocess-image-rcnn.py
