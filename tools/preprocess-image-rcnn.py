@@ -35,7 +35,7 @@ def main():
     h5_path = config.rcnn_trainval_path if not args.test else config.rcnn_test_path
     tsv_path = config.bottom_up_trainval_path if not args.test else config.bottom_up_test_path
 
-    with h5py.File(h5_path, libver='latest') as fd:
+    with h5py.File(h5_path,"w", libver='latest') as fd:
         features = fd.create_dataset('features', shape=features_shape, dtype='float32')
         boxes = fd.create_dataset('boxes', shape=boxes_shape, dtype='float32')
         coco_ids = fd.create_dataset('ids', shape=(features_shape[0],), dtype='int32')
